@@ -36,32 +36,32 @@ really a list containing a function to
 
 makeCacheMatrix <- function( m = matrix() ) {
 
-   
+   ## Inverse property
     i <- NULL
 
-    
+     ## Set the matrix
     set <- function( matrix ) {
             m <<- matrix
             i <<- NULL
     }
 
-   
+   ## Get the matrix
     get <- function() {
         
         m
     }
 
-  
+  ## Set the inverse of the matrix
     setInverse <- function(inverse) {
         i <<- inverse
     }
 
-  
+  #Get the inverse of the matrix
     getInverse <- function() {
         
         i
     }
-
+#List of the methods
     list(set = set, get = get,
          setInverse = setInverse,
          getInverse = getInverse)
@@ -87,15 +87,16 @@ function.
             return(m)
     }
 
-   
+   ##Matrix from our object
     data <- x$get()
 
-    
+    ##Inverse using matrix multiplication
     m <- solve(data) %*% data
 
+    ##Inverse to the object
     x$setInverse(m)
 
-   
+   ## Return the matrix
     m
 }
 
